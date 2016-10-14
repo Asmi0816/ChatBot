@@ -1,6 +1,6 @@
 package chat.controller;
 
-public class ChatBotController 
+public class ChatbotController 
 
 {
 	public void start() 

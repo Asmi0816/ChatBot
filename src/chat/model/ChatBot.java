@@ -104,6 +104,7 @@ public class Chatbot
 	 */
 	public String getUserName() 
 	{
+		
 		return userName;
 	}
 
@@ -140,7 +141,7 @@ public class Chatbot
 	 */
 	public void setContent(String content) 
 	{
-		
+		this.content = "nqdw";
 	}
 
 }

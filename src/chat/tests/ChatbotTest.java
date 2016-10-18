@@ -78,9 +78,11 @@ public class ChatbotTest
 	@Test
 	public void testLengthChecker()
 	{
+		
 		assertFalse("incorrect zero length check",sampleBot.lengthChecker(""));
 		assertFalse("incorrect null check", sampleBot.lengthChecker(null));
 		assertTrue("incorrect length check", sampleBot.lengthChecker("       "));
+		
 	}
 
 	@Test

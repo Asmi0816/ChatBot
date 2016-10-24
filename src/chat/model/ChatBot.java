@@ -130,7 +130,7 @@ public class Chatbot
 		
 		for (int i = 0; i < politicalTopicList.size(); i++)
 		{
-			if (currentInput != null && currentInput.equals(politicalTopicList))
+			if (currentInput != null && currentInput.equals(politicalTopicList.get(i)))
 			{
 				hasPolitical = true;
 			}

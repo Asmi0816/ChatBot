@@ -23,8 +23,10 @@ public class Chatbot
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
-		this.userName = userName;
-		this.content = new String("content");
+		this.userName = new String ("userName");
+		this.content = new String("intallian");
+		this.buildMemesList();
+		buildPoliticalTopicsList();
 		
 		
 	}
@@ -33,12 +35,36 @@ public class Chatbot
 
 	private void buildMemesList() 
 	{
+		memesList.add("John Cena");
+		memesList.add("doge");
+		memesList.add("cute animals");
+		memesList.add("grumpy cat");
+		memesList.add("dat boi");
+		memesList.add("willy wonka");
+		memesList.add("Harambe");
 		
 	}
 
 	private void buildPoliticalTopicsList() 
 	{
-		
+		politicalTopicList.add("Democrat");
+		politicalTopicList.add("Republican");
+		politicalTopicList.add("11-8-16");
+		politicalTopicList.add("conservative");
+		politicalTopicList.add("Clinton");
+		politicalTopicList.add("liberal");
+		politicalTopicList.add("Trump");
+		politicalTopicList.add("Kaine");
+		politicalTopicList.add("Pence");
+		politicalTopicList.add("Stine");
+		politicalTopicList.add("Johnson");
+		politicalTopicList.add("election");
+		politicalTopicList.add("Trump wall");
+		politicalTopicList.add("deleted emails");
+		politicalTopicList.add("Foreign Policy");
+		politicalTopicList.add("Free trade");
+		politicalTopicList.add("War & Peace");
+		politicalTopicList.add("Gun control");
 	}
 
 	/**

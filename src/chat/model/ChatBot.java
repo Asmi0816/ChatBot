@@ -42,6 +42,17 @@ public class Chatbot
 		memesList.add("dat boi");
 		memesList.add("willy wonka");
 		memesList.add("Harambe");
+		memesList.add("fresh avacado");
+		memesList.add("you're not really fine.");
+		memesList.add("stop it");
+		memesList.add("Rhon Swansen");
+		memesList.add("Batman");
+		memesList.add("clowns");
+		memesList.add("spongebob");
+		memesList.add("cat");
+		memesList.add("21");
+		memesList.add("Office");
+		memesList.add("doctor");
 		
 	}
 
@@ -94,7 +105,14 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput) 
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if (currentInput != null && currentInput.contains(content))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
 	}
 
 	/**

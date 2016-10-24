@@ -128,9 +128,9 @@ public class Chatbot
 	{
 		boolean hasPolitical = false;
 		
-		for (int i = 0; i < politicalTopicList.size(); i++)
+		for (int index = 0; index < politicalTopicList.size(); index++)
 		{
-			if (currentInput != null && currentInput.equals(politicalTopicList.get(i)))
+			if (currentInput != null && currentInput.equals(politicalTopicList.get(index)))
 			{
 				hasPolitical = true;
 			}
@@ -149,7 +149,17 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean hasMeme = false;
+		
+		for (int position = 0; position < memesList.size(); position++)
+		{
+			if (currentInput != null && currentInput.equalsIgnoreCase(memesList.get(position)))
+			{
+				hasMeme = true;
+			}
+		}
+		
+		return hasMeme;
 	}
 
 	/**

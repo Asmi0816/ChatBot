@@ -13,7 +13,7 @@ public class ChatController
 	
 	public ChatController()
 	{
-		stupidBot = new Chatbot("Boaty McBoatFace");
+		stupidBot = new Chatbot("Italian");
 		chatView = new ChatViewer();
 		
 	}
@@ -21,13 +21,38 @@ public class ChatController
 	public void start() 
 	{
 		
-		String response = "talking to you ";
+		String response = chatView.collectResponse("talking to you ");
 		
 		while(stupidBot.lengthChecker(response))
 		{
-			response = chatView.collectResponse("Hows your day been???");
+			chatView.displayMessage(useChatbotCheckers(response));
+			response = chatView.collectResponse("You're interested in " + response);
 		}
 		
+	
+		}
+	
+	
+	private String useChatbotCheckers(String input)
+	{
+		String answer = "";
+		
+		if (stupidBot.contentChecker(input))
+		{
+			answer += "\nYou know my special secret\n";
+		}
+		if(stupidBot.memeChecker(input))
+		{
+			answer += "\nI can has memes?\n";
+		}
+		
+		if(answer.length() == 0)
+		{
+			answer += "Sorry, I don't know about " + input;
+		}
+		
+		
+		return answer;
 	}
 	
 }

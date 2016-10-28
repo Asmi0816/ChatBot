@@ -60,14 +60,14 @@ public class Chatbot
 	{
 		politicalTopicList.add("Democrat");
 		politicalTopicList.add("Republican");
-		politicalTopicList.add("11-8-16");
+		politicalTopicList.add("11/8/16");
 		politicalTopicList.add("conservative");
 		politicalTopicList.add("Clinton");
 		politicalTopicList.add("liberal");
 		politicalTopicList.add("Trump");
 		politicalTopicList.add("Kaine");
 		politicalTopicList.add("Pence");
-		politicalTopicList.add("Stine");
+		politicalTopicList.add("Stein");
 		politicalTopicList.add("Johnson");
 		politicalTopicList.add("election");
 		politicalTopicList.add("Trump wall");
@@ -76,6 +76,7 @@ public class Chatbot
 		politicalTopicList.add("Free trade");
 		politicalTopicList.add("War & Peace");
 		politicalTopicList.add("Gun control");
+		politicalTopicList.add("Hillary");
 	}
 
 	/**
@@ -107,8 +108,7 @@ public class Chatbot
 	{
 		boolean hasContent = false;
 		
-		String temp = "♬";
-		System.out.println(temp.toLowerCase());
+		
 		
 		if (currentInput != null && currentInput.toLowerCase().contains(content.toLowerCase()))
 		{

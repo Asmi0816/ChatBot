@@ -14,6 +14,7 @@ public class Chatbot
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
+	
 
 	/**
 	 * * Creates an instance of the Chatbot with the supplied username. * @param
@@ -164,7 +165,26 @@ public class Chatbot
 		
 		return hasMeme;
 	}
+	
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean didQuit = false;
+		if (currentInput != null && !currentInput.equalsIgnoreCase("exit") && currentInput.equalsIgnoreCase("Quit"))
+		{
+			didQuit = true;
+		}
+		
+		return didQuit;
+	}
 
+	
+	public boolean keyBoardMash(String currentInput)
+	{
+		boolean didMash = false;
+		
+		return didMash;
+	}
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
 	 * of the Chatbot.

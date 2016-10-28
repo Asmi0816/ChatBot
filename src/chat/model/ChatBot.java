@@ -23,7 +23,7 @@ public class Chatbot
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
-		this.userName = new String ("userName");
+		this.userName = userName;
 		this.content = new String("itallian");
 		this.buildMemesList();
 		buildPoliticalTopicsList();
@@ -171,7 +171,6 @@ public class Chatbot
 	 */
 	public String getUserName() 
 	{
-		
 		return userName;
 	}
 
@@ -209,6 +208,11 @@ public class Chatbot
 	public void setContent(String content) 
 	{
 	 this.content = content;
+	}
+	
+	public void setUserName(String userName)
+	{
+		this.userName = userName;
 	}
 
 }

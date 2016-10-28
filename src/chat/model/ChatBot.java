@@ -179,10 +179,13 @@ public class Chatbot
 	}
 
 	
-	public boolean keyBoardMash(String currentInput)
+	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean didMash = false;
-		
+		if (currentInput != null && !currentInput.equalsIgnoreCase("S.D.F.") && !currentInput.equalsIgnoreCase("derf") && currentInput.equals("sdf") || currentInput.equals("dfg") || currentInput.equals("cvb") || currentInput.equals(",./"))
+		{
+			didMash = true;
+		}
 		return didMash;
 	}
 	/**

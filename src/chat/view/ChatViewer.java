@@ -12,7 +12,7 @@ public class ChatViewer
 	public ChatViewer()
 	{
 		windowMessage = "This message is brought to you by Jerry the ChatBot.";
-		chatIcon = new ImageIcon(getClass().getResource("pictures/chatbot.png"));
+		chatIcon = new ImageIcon(getClass().getResource("images/chatbot.jpg"));
 	}
 	
 	
@@ -34,7 +34,7 @@ public class ChatViewer
 	
 	public void displayMessage(String message)
 	{
-		JOptionPane.showMessageDialog(null,  message);
+		JOptionPane.showMessageDialog(null,  message, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);
 	}
 	
 }

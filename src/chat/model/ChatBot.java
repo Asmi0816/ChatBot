@@ -35,13 +35,13 @@ public class Chatbot
 
 	private void buildMemesList() 
 	{
-		memesList.add("John Cena");
+		memesList.add("john cena");
 		memesList.add("doge");
 		memesList.add("cute animals");
 		memesList.add("grumpy cat");
 		memesList.add("dat boi");
 		memesList.add("willy wonka");
-		memesList.add("Harambe");
+		memesList.add("harambe");
 		memesList.add("fresh avacado");
 		memesList.add("you're not really fine.");
 		memesList.add("stop it");

@@ -30,6 +30,7 @@ public class Chatbot
 		buildPoliticalTopicsList();
 		
 		
+		
 	}
 	
 	
@@ -187,6 +188,28 @@ public class Chatbot
 			didMash = true;
 		}
 		return didMash;
+	}
+	
+	public boolean inputHTMLChecker(String currentInput) 
+	{
+		boolean inHTML = false;
+		
+		if(currentInput != null)
+		{
+			
+			
+			if(currentInput == null || currentInput.length() < 6 )
+			{
+				
+			}
+			
+			
+		
+			
+					
+		}
+		
+		return inHTML;
 	}
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username

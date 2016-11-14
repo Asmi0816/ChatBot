@@ -1,6 +1,7 @@
 package chat.controller;
 
 
+import chat.view.ChatFrame;
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
 public class ChatController 
@@ -9,13 +10,14 @@ public class ChatController
 	
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
+	private ChatFrame appFrame;
 	
 	
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Italian");
 		chatView = new ChatViewer();
-		
+		appFrame = new ChatFrame(this);
 	}
 	
 	public void start() 

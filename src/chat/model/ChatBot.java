@@ -213,6 +213,18 @@ public class Chatbot
 		
 		return inHTML;
 	}
+	
+	public boolean twitterChecker(String currentInput)
+	{
+		boolean inTwitter = false;
+		
+		if (currentInput.startsWith("#") || currentInput.startsWith("@") && !currentInput.contains(" "))
+		{
+			
+		}
+		
+		return inTwitter;
+	}
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
 	 * of the Chatbot.

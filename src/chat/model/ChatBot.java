@@ -218,9 +218,9 @@ public class Chatbot
 	{
 		boolean inTwitter = false;
 		
-		if (currentInput.startsWith("#") || currentInput.startsWith("@") && !currentInput.contains(" "))
+		if (currentInput.startsWith("#") || currentInput.startsWith("@") && !currentInput.equals(" "))
 		{
-			
+			inTwitter = true;
 		}
 		
 		return inTwitter;

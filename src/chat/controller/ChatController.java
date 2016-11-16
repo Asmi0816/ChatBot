@@ -10,32 +10,32 @@ public class ChatController
 	
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
-	private ChatFrame appFrame;
+	private ChatFrame baseFrame;
 	
 	
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Italian");
 		chatView = new ChatViewer();
-		appFrame = new ChatFrame(this);
+		baseFrame = new ChatFrame(this);
 	}
 	
 	public void start() 
 	{
 		
-		String response = chatView.collectResponse("talking to you ");
+		//String response = chatView.collectResponse("talking to you ");
 		
-		while(stupidBot.lengthChecker(response))
-		{
-			chatView.displayMessage(useChatbotCheckers(response));
-			response = chatView.collectResponse("You're interested in " + response);
-		}
+		//while(stupidBot.lengthChecker(response))
+	//	{
+	//		chatView.displayMessage(useChatbotCheckers(response));
+	//		response = chatView.collectResponse("You're interested in " + response);
+	//	}
 		
 	
-		}
+	}
 	
 	
-	private String useChatbotCheckers(String input)
+	public String useChatbotCheckers(String input)
 	{
 		String answer = "";
 		
@@ -53,7 +53,7 @@ public class ChatController
 		}
 		
 		
-		if(answer.length() == 0)
+		if(!stupidBot.lengthChecker(answer))
 		{
 			answer += "Sorry, I don't know about " + input;
 		}
@@ -61,5 +61,6 @@ public class ChatController
 		
 		return answer;
 	}
+	
 	
 }

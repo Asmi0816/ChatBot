@@ -197,13 +197,15 @@ public class Chatbot
 		if(currentInput != null)
 		{
 			
+			String trimmed = currentInput.replaceAll(" ", "");
 			
-			if(currentInput == null || currentInput.length() < 6 )
+			 if ((trimmed.startsWith("<") && trimmed.contains(">") && trimmed.length() > 2 && !currentInput.endsWith(" ") && !currentInput.endsWith("F> </a>")) 
+					 || (currentInput.length() > 17 && currentInput.contains("A HREF=\"") && currentInput.indexOf("\">") > 9 && !currentInput.endsWith("F> </a>")))      
 			{
 				
+						inHTML =true;
+					
 			}
-			
-			
 		
 			
 					

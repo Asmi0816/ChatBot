@@ -62,7 +62,35 @@ public class ChatController
 		return answer;
 	}
 	
+	public Chatbot getStupiBot()
+	{
+		return stupidBot;
+	}
 	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
+	
+	public ChatViewer getChatView()
+	{
+		return chatView;
+	}
+	
+	public void setStupidBot(Chatbot stupidBot)
+	{
+		this.stupidBot = stupidBot;
+	}
+	
+	public void setBaseFrame(ChatFrame baseFrame)
+	{
+		this.baseFrame = baseFrame;
+	}
+	
+	public void setChatView(ChatViewer chatView)
+	{
+		this.chatView = chatView;
+	}
 	
 	
 }

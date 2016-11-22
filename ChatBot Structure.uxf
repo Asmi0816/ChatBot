@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>190</y>
+      <w>340</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>chat.model :: Chatbot
+--
+- ArrayList&lt;String&gt; memesList : Chatbot
+- ArrayList&lt;String&gt; politicalTopicList : Chatbot
+- String userName  : Chatbot
+- String content : Chatbot
+--
++ Chatbot() : void
++ buildMemesList() : void
++ buildPoliticalTopicsList() : void
++ lengthChecker() : Bool
++ contentChecker() : Bool
++ politicalTopicChecker() : Bool
++ memeChecker() : Bool
++ quitChecker() : Bool
++ keyboardMashChecker() : Bool
++ inputHTMLChecker() : Bool
++ twitterChecker() : Bool
++ getContent() : String
++ getUserName : String
++ getMemesList() : ArrayList&lt;&gt;
++ getPoliticalTopicList() : ArrayList&lt;&gt;
++ setContent() : void
++ setUserName() : void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>50</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatController
+--
+- stupidBot : Chatbot
+- display : ChatbotViewer
+--
++ start() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>50</y>
+      <w>270</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatRunner
+--
+
+--
++ main(String[]) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>50</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>chat.view :: ChatbotViewer
+--
+
+--
++ displayMessage(String) : void
++ collectResponse(String) : String
++ collectOption(String) : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

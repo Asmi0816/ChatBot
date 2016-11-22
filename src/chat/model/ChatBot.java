@@ -197,12 +197,18 @@ public class Chatbot
 		if(currentInput != null)
 		{
 			
-			String trimmed = currentInput.replaceAll(" ", "");
 			
-			 if ((trimmed.startsWith("<") && trimmed.contains(">") && trimmed.length() > 2 && !currentInput.endsWith(" ") && !currentInput.endsWith("F> </a>")) 
-					 || (currentInput.length() > 17 && currentInput.contains("A HREF=\"") && currentInput.indexOf("\">") > 9 && !currentInput.endsWith("F> </a>")))      
+			int matched = currentInput.indexOf("<");
+			int closedMatch = currentInput.indexOf(">");
+			String tag = currentInput.substring(matched, closedMatch);
+			
+			 if (currentInput.indexOf("<") > matched && currentInput.indexOf(">") > closedMatch && currentInput.length() > 2)
+					       
 			{
-				
+				if (currentInput.substring(matched, closedMatch))
+				{
+					
+				}
 						inHTML =true;
 					
 			}
@@ -269,7 +275,10 @@ public class Chatbot
 	{
 	 this.content = content;
 	}
-	
+	/**
+	 * * Updates the username of the Chatbot instance. *@param userName
+	 * The updated value of the Chatbot username.
+	 */
 	public void setUserName(String userName)
 	{
 		this.userName = userName;

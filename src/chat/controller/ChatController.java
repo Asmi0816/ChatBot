@@ -77,8 +77,20 @@ public class ChatController
 	public String randomTopicGenerator()
 	{
 		String randomTopic = "";
+		int random = (int)(Math.random() * 7);
+		switch(random)
+		{
+		
+		case 0:
+			randomTopic = "Did you see the new _____ video?";
+			break;
+		case 1:
 		
 		
+		
+		
+		
+		}
 		
 		return randomTopic;
 		

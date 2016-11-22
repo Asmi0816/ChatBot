@@ -200,12 +200,12 @@ public class Chatbot
 			
 			int matched = currentInput.indexOf("<");
 			int closedMatch = currentInput.indexOf(">");
-			String tag = currentInput.substring(matched, closedMatch);
+			String tag = currentInput.substring(matched + 1, closedMatch);
 			
-			 if (currentInput.indexOf("<") > matched && currentInput.indexOf(">") > closedMatch && currentInput.length() > 2)
+			 if (currentInput.indexOf("<", closedMatch) > 0 && currentInput.indexOf(">", matched) > 0 && currentInput.length() > 2)
 					       
 			{
-				if (currentInput.substring(matched, closedMatch))
+				if (currentInput.substring(matched + 1 , closedMatch + 1).equals(tag))
 				{
 					
 				}

@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>30</x>
-      <y>190</y>
+      <y>160</y>
       <w>340</w>
       <h>390</h>
     </coordinates>
@@ -34,6 +34,7 @@
 + setContent() : void
 + setUserName() : void
 
+bg=#56456
 
 
 </panel_attributes>
@@ -67,7 +68,9 @@
 --
 
 --
-+ main(String[]) : void</panel_attributes>
++ main(String[]) : void
+bg=#208293
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

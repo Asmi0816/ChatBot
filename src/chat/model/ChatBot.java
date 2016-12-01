@@ -200,20 +200,30 @@ public class Chatbot
 			
 			int matched = currentInput.indexOf("<");
 			int closedMatch = currentInput.indexOf(">");
-			String tag = currentInput.substring(matched + 1, closedMatch);
+			if(matched >= 0)
+			{
+				String innards = currentInput.substring(matched + 1, closedMatch);
+				String begining = ("<");
+				String end = (">");
+				innards.toLowerCase();
+				String theEnd = currentInput.substring(closedMatch +1);
+				theEnd.toLowerCase();
+				
 			
-			 if (currentInput.indexOf("<", closedMatch) > 0 && currentInput.indexOf(">", matched) > 0 && currentInput.length() > 2)
+			 if (currentInput.indexOf("<", closedMatch) > 0 && currentInput.indexOf(">", matched) > 0 && currentInput.length() > 2
+					 && currentInput.contains(innards) && theEnd.contains("/" + innards)  || currentInput.contains("<P>"))
 					       
 			{
-				if (currentInput.substring(matched + 1 , closedMatch + 1).equals(tag))
+				if ((currentInput.substring(closedMatch + 1).contains(begining)) && currentInput.substring(closedMatch + 1).contains(end) 
+						&& !currentInput.contains("F> </a>") || currentInput.contains("<P>") && !currentInput.contains("F> </a>"))            
 				{
-					
+					inHTML =true;
 				}
-						inHTML =true;
+					
 					
 			}
 		
-			
+			}
 					
 		}
 		

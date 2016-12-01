@@ -202,20 +202,20 @@ public class Chatbot
 			int closedMatch = currentInput.indexOf(">");
 			if(matched >= 0)
 			{
-				String innards = currentInput.substring(matched + 1, closedMatch);
+				String innards = currentInput.substring(matched + 1, closedMatch).toUpperCase();
 				String begining = ("<");
 				String end = (">");
-				innards.toLowerCase();
-				String theEnd = currentInput.substring(closedMatch +1);
-				theEnd.toLowerCase();
+			
+				
 				
 			
-			 if (currentInput.indexOf("<", closedMatch) > 0 && currentInput.indexOf(">", matched) > 0 && currentInput.length() > 2
-					 && currentInput.contains(innards) && theEnd.contains("/" + innards)  || currentInput.contains("<P>"))
+			 if (currentInput.indexOf("<", closedMatch) > 0 && currentInput.indexOf(">", closedMatch) > 0 && currentInput.length() > 2
+					 && currentInput.toUpperCase().contains(innards) && currentInput.toUpperCase().contains("/" + innards) 
+					 || currentInput.toUpperCase().contains("<P>") || currentInput.toUpperCase().contains("A HREF=\"") && currentInput.toUpperCase().contains("</A>"))
 					       
 			{
-				if ((currentInput.substring(closedMatch + 1).contains(begining)) && currentInput.substring(closedMatch + 1).contains(end) 
-						&& !currentInput.contains("F> </a>") || currentInput.contains("<P>") && !currentInput.contains("F> </a>"))            
+				if ((currentInput.toUpperCase().substring(closedMatch + 1).contains(begining)) && currentInput.toUpperCase().substring(closedMatch + 1).contains(end) 
+						 || currentInput.contains("<P>") || currentInput.contains("A HREF=\""))            
 				{
 					inHTML =true;
 				}

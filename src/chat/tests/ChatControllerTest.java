@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import chat.controller.ChatController;
-import chat.model.Chatbot;
+import chat.model.ChatBot;
 import chat.view.ChatFrame;
 
 public class ChatControllerTest
@@ -32,7 +32,7 @@ public class ChatControllerTest
 		assertNotNull("GUI Frame not installed",testController.getBaseFrame());
 		assertTrue("Incorrect display data type", testController.getBaseFrame() instanceof ChatFrame);
 		assertNotNull("Chatbot not initialized", testController.getChatbot());
-		assertTrue("Incorrect data type", testController.getChatbot() instanceof Chatbot);
+		assertTrue("Incorrect data type", testController.getChatbot() instanceof ChatBot);
 	}
 
 }

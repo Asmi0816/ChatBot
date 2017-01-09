@@ -2,20 +2,20 @@ package chat.controller;
 
 
 import chat.view.ChatFrame;
-import chat.model.Chatbot;
+import chat.model.ChatBot;
 import chat.view.ChatViewer;
 public class ChatController 
 
 {
 	
-	private Chatbot stupidBot;
+	private ChatBot stupidBot;
 	private ChatViewer chatView;
 	private ChatFrame baseFrame;
 	
 	
 	public ChatController()
 	{
-		stupidBot = new Chatbot("Italian");
+		stupidBot = new ChatBot("Italian");
 		chatView = new ChatViewer();
 		baseFrame = new ChatFrame(this);
 	}
@@ -31,7 +31,6 @@ public class ChatController
 	//		response = chatView.collectResponse("You're interested in " + response);
 	//	}
 		
-	
 	}
 	
 	
@@ -96,7 +95,7 @@ public class ChatController
 		
 	}
 	
-	public Chatbot getChatbot()
+	public ChatBot getChatbot()
 	{
 		return stupidBot;
 	}

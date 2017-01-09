@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Arick Smith
  * @version 1.0 10/14/15
  */
-public class Chatbot 
+public class ChatBot 
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
@@ -20,7 +20,7 @@ public class Chatbot
 	 * * Creates an instance of the Chatbot with the supplied username. * @param
 	 * userName The username for the chatbot.
 	 */
-	public Chatbot(String userName) 
+	public ChatBot(String userName) 
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();

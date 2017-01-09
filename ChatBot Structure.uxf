@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>0</x>
       <y>160</y>
       <w>340</w>
       <h>390</h>
@@ -16,7 +16,7 @@
 - String userName  : Chatbot
 - String content : Chatbot
 --
-+ Chatbot() : void
++ Chatbot() : constructor
 + buildMemesList() : void
 + buildPoliticalTopicsList() : void
 + lengthChecker() : Bool
@@ -43,7 +43,7 @@ bg=#56456
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
+      <x>320</x>
       <y>50</y>
       <w>280</w>
       <h>80</h>
@@ -59,7 +59,7 @@ bg=#56456
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>0</x>
       <y>50</y>
       <w>270</w>
       <h>80</h>
@@ -76,8 +76,8 @@ bg=#208293
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>50</y>
+      <x>370</x>
+      <y>160</y>
       <w>270</w>
       <h>100</h>
     </coordinates>

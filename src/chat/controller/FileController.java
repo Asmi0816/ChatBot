@@ -38,11 +38,28 @@ public class FileController
 	
 	public static String readFile(ChatController baseController, String fileName)
 	{
-		String returnString = "";
+		String fileContents = "";
+		try
+		{
+			Scanner fileReader = new Scanner(new File(fileName));
+			while(fileReader.hasNextLine())
+			{
+				fileContents += fileReader.nextLine();
+				fileContents+= "\n";
+				
+			}
+			fileReader.close();
+		}
+		catch(IOException someIOerror)
+		{
+			baseController.handleErrors(someIOerror);
+		}
+		catch(NullPointerException fileError)
+		{
+			baseController.handleErrors(fileError);
+		}
 		
-		
-		
-		return returnString;
+		return fileContents;
 	}
 	
 	

@@ -95,6 +95,19 @@ public class ChatController
 		
 	}
 	
+	public void handleErrors(Exception newException)
+	{
+		
+		chatView.displayMessage("An error has occured. Detailed results nest.");
+		chatView.displayMessage(newException.getMessage());		
+		
+	}
+	
+	public ChatViewer getPopUp()
+	{
+		return chatView;
+	}
+	
 	public ChatBot getChatbot()
 	{
 		return stupidBot;

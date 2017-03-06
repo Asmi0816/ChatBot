@@ -137,7 +137,7 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed (ActionEvent click)
 			{
-				
+				baseController.useTwitter(chatField.getText());
 			}
 		});
 		

@@ -96,6 +96,20 @@ public class CTECTwitter {
 		}
 	}
 	
+	private void turnTweetsToWords()
+	{
+		for(Status currentTweet : allTheTweets)
+		{
+			String tweetText = currentTweet.getText();
+			String [] tweetWords = tweetText.split(" ");
+			for(String word :  tweetWords)
+			{
+				tweetedWords.add(word);
+			}
+		}
+	}
+	
+	
 	private void removeBoringWords() 
 	{
 		String [] boringWords = createIgnoredWordsArray();
@@ -117,9 +131,16 @@ public class CTECTwitter {
 
 	public String getMostPopularWord(String userName) 
 	{
+		
+		gatherTheTweets(userName);
+		turnTweetsToWords();
 		removeBoringWords();
 		removeBlankWords();
-		return "";
+		
+		String information = "The tweetcount is " + allTheTweets.size() + " and the word count after removal is " + tweetedWords.size();
+		
+		
+		return information;
 	}
 
 }

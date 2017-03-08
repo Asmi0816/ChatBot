@@ -41,7 +41,7 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("load a topic?");
 		
 		
-		tButton = new JButton("Twitter may have something...");
+		tButton = new JButton("Post to twitter.");
 		
 		chatDisplay = new JTextArea(5, 25);
 		hButton = new JButton("HTML?!?");

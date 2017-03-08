@@ -30,7 +30,7 @@ public class CTECTwitter {
 	{
 		try 
 		{
-			twitterBot.updateStatus(textToTweet + "@ChatbotCTEC");
+			twitterBot.updateStatus(textToTweet + " @ChatbotCTEC");
 		} 
 		catch (TwitterException tweetError) 
 		{

@@ -12,13 +12,13 @@ public class CTECTwitter
 {
 	private ChatController baseController;
 	private Twitter twitterBot;
-	private List<Status> searchedTweets;
+	private List<Status> tweetedWords;
 	private List<String> ignoredWords;
 	
 	public CTECTwitter(ChatController baseController)
 	{
 		this.baseController = baseController;
-		searchedTweets = new ArrayList<Status>();
+		tweetedWords = new ArrayList<Status>();
 		ignoredWords = new ArrayList<String>();
 		twitterBot = TwitterFactory.getSingleton();
 	}
@@ -49,6 +49,14 @@ public class CTECTwitter
 		
 		
 		return ignoredWords;
+	}
+	
+	private void removeBoringWords()
+	{
+		for(int index = 0; index < tweetedWords.size(); index++)
+		{
+			
+		}
 	}
 	
 	private void collectTweets(String userName)

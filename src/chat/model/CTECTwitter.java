@@ -26,12 +26,18 @@ public class CTECTwitter {
 		twitterBot = TwitterFactory.getSingleton();
 	}
 
-	public void sendTweet(String textToTweet) {
-		try {
+	public void sendTweet(String textToTweet)
+	{
+		try 
+		{
 			twitterBot.updateStatus(textToTweet + "@ChatbotCTEC");
-		} catch (TwitterException tweetError) {
+		} 
+		catch (TwitterException tweetError) 
+		{
 			baseController.handleErrors(tweetError);
-		} catch (Exception otherError) {
+		} 
+		catch (Exception otherError) 
+		{
 			baseController.handleErrors(otherError);
 		}
 	}

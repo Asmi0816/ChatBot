@@ -7,7 +7,7 @@ import twitter4j.TwitterFactory;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 import twitter4j.Paging;
 import twitter4j.Status;
@@ -144,10 +144,42 @@ public class CTECTwitter {
 		removeBoringWords();
 		removeBlankWords();
 		
-		String information = "The tweetcount is " + allTheTweets.size() + " and the word count after removal is " + tweetedWords.size();
+		String information = "The tweetcount is " + allTheTweets.size() + " and the most popular word for " + userName + " is " + calculateTop();
 		
 		
 		return information;
+	}
+	
+	public String calculateTop()
+	{
+		String results = "";
+		String topWord = "";
+		int mostPopularIndex = 0;
+		int popularCount = 0;
+		for(int index = 0; index < tweetedWords.size(); index++)
+		{
+			int currentPopularity = 0;
+			for(int searched = index + 1; searched < tweetedWords.size(); searched++)
+			{
+				
+				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)))
+				{
+					currentPopularity++;
+				}
+			}
+			
+			if(currentPopularity > popularCount)
+			{
+				popularCount = currentPopularity;
+				mostPopularIndex = index;
+				topWord = tweetedWords.get(mostPopularIndex);
+			}
+			currentPopularity = 0;
+		}
+		results += " the most popular word was " + topWord + ", and it occured " + popularCount + " times.";
+		results += "\nThat means it has a percentage of " + ((double)popularCount)/tweetedWords.size() * 100 + "%";
+		
+		return results;
 	}
 
 }

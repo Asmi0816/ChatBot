@@ -39,13 +39,16 @@ public class CTECTwitter
 		}
 	}
 	
-	private void createIgnoredWordsList()
+	private String [] createIgnoredWordsArray()
 	{
 		String [] ignoredWords = {"the" + "of" + "and" + "a" + "to" + "in" + "is" + "that" + "it" + "he" +  "was" + "you" + "for" + "on" + "are" + "as" + "with" +"his" +"they"+ "at"+ "be"+
 				"this"+ "have"+ "via"+ "from" +"or"+ "one"+ "had" +"by" +"but"+ "not"+ "what"+ "all" +"were" +"we"+ "RT" +"I" +"&" +"when" +"your" +"can" +"said" +"there"+
 				"use" +"an"+ "each"+ "which" +"she" +"do"+ "how" +"their"+ "if"+ "will" +"up" +"about"+ "out"+ "many"+ "then"+ "them"+ "these" +"so" +"some" +"her" +
 				"would"+ "make"	+"him"+	"into" +"has"+ "two" +"go"	+"see" +"no"+ "way" +"could" +"my" +"than"+ "been" +"who"	+"its" +"did" +"get"
 				+"may" +"Ö" +"@" +"??" +"Im" +"me"+ "u" +"just"+ "our"+ "like"};
+		
+		
+		return ignoredWords;
 	}
 	
 	private void collectTweets(String userName)
@@ -53,9 +56,9 @@ public class CTECTwitter
 		
 	}
 	
-	public String getMostCommonWord()
+	public String getMostPopularWord(String userName)
 	{
-		return null;
+		return "";
 	}
 	
 	

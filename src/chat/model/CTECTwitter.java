@@ -1,73 +1,125 @@
 package chat.model;
+
 import chat.controller.ChatController;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import java.util.List;
+import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import twitter4j.Paging;
 import twitter4j.Status;
 
-
-public class CTECTwitter 
-{
+public class CTECTwitter {
 	private ChatController baseController;
 	private Twitter twitterBot;
-	private List<Status> tweetedWords;
-	private List<String> ignoredWords;
+	private List<String> tweetedWords;
+	private List<Status> allTheTweets;
 	
-	public CTECTwitter(ChatController baseController)
-	{
+
+	public CTECTwitter(ChatController baseController) {
 		this.baseController = baseController;
-		tweetedWords = new ArrayList<Status>();
-		ignoredWords = new ArrayList<String>();
+		this.tweetedWords = new ArrayList<String>();
+		this.allTheTweets = new ArrayList<Status>();
 		twitterBot = TwitterFactory.getSingleton();
 	}
-	
-	public void sendTweet(String textToTweet)
-	{
-		try
-		{
+
+	public void sendTweet(String textToTweet) {
+		try {
 			twitterBot.updateStatus(textToTweet + "@ChatbotCTEC");
-		}
-		catch(TwitterException tweetError)
-		{
+		} catch (TwitterException tweetError) {
 			baseController.handleErrors(tweetError);
-		}
-		catch(Exception otherError)
-		{
+		} catch (Exception otherError) {
 			baseController.handleErrors(otherError);
 		}
 	}
-	
-	private String [] createIgnoredWordsArray()
+
+	private String[] createIgnoredWordsArray() 
 	{
-		String [] ignoredWords = {"the" + "of" + "and" + "a" + "to" + "in" + "is" + "that" + "it" + "he" +  "was" + "you" + "for" + "on" + "are" + "as" + "with" +"his" +"they"+ "at"+ "be"+
-				"this"+ "have"+ "via"+ "from" +"or"+ "one"+ "had" +"by" +"but"+ "not"+ "what"+ "all" +"were" +"we"+ "RT" +"I" +"&" +"when" +"your" +"can" +"said" +"there"+
-				"use" +"an"+ "each"+ "which" +"she" +"do"+ "how" +"their"+ "if"+ "will" +"up" +"about"+ "out"+ "many"+ "then"+ "them"+ "these" +"so" +"some" +"her" +
-				"would"+ "make"	+"him"+	"into" +"has"+ "two" +"go"	+"see" +"no"+ "way" +"could" +"my" +"than"+ "been" +"who"	+"its" +"did" +"get"
-				+"may" +"Ö" +"@" +"??" +"Im" +"me"+ "u" +"just"+ "our"+ "like"};
+		String [] boringWords;
+		int wordCount = 0;
 		
-		
-		return ignoredWords;
-	}
-	
-	private void removeBoringWords()
-	{
-		for(int index = 0; index < tweetedWords.size(); index++)
+		Scanner boringWordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		while(boringWordScanner.hasNextLine())
 		{
-			
+			wordCount++;
+		}
+		boringWordScanner.close();
+		
+		boringWords = new String[wordCount];
+		
+		boringWordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		
+		for(int index = 0; index < boringWords.length; index++)
+		{
+			boringWords[index] = boringWordScanner.next();
+		}
+		
+		return boringWords;
+	}
+
+	private void removeBlankWords() 
+	{
+		for (int index = 0; index < tweetedWords.size(); index++) 
+		{
+			if (tweetedWords.get(index).trim().equals("")) 
+			{
+				tweetedWords.remove(index);
+				index--;
+			}
 		}
 	}
 	
-	private void collectTweets(String userName)
+	private void gatherTheTweets(String user)
 	{
+		tweetedWords.clear();
+		allTheTweets.clear();
+		int pageCount = 1;
+		Paging statusPage = new Paging(1,200);
 		
+		while(pageCount <= 10)
+		{
+			
+			try
+			{
+			allTheTweets.addAll(twitterBot.getUserTimeline(user, statusPage));
+			}
+			catch(TwitterException twitterError)
+			{
+				baseController.handleErrors(twitterError);
+			}
+			
+			
+			pageCount++;
+		}
 	}
 	
-	public String getMostPopularWord(String userName)
+	private void removeBoringWords() 
 	{
+		String [] boringWords = createIgnoredWordsArray();
+		for(int index = 0; index < tweetedWords.size(); index++)
+		{
+			for(int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
+			{
+				if(tweetedWords.get(index).equalsIgnoreCase(boringWords[boringIndex]))
+				{
+					tweetedWords.remove(index);
+					index--;
+					boringIndex = boringWords.length;
+				}
+			}
+		}
+
+	}
+
+
+	public String getMostPopularWord(String userName) 
+	{
+		removeBoringWords();
+		removeBlankWords();
 		return "";
 	}
-	
-	
+
 }

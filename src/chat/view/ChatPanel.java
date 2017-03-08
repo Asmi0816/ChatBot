@@ -19,6 +19,7 @@ public class ChatPanel extends JPanel
 	private JButton loadButton;
 	private JButton tButton;
 	private JButton hButton;
+	private JButton searchTButton;
 	private JButton saveButton;
 	private JLabel chatLabel;
 	
@@ -34,6 +35,7 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("This one has words");
 		
 		chatPane = new JScrollPane();
+		searchTButton = new JButton("Check twitter");
 		
 		
 		loadButton = new JButton("load a topic?");
@@ -45,6 +47,7 @@ public class ChatPanel extends JPanel
 		hButton = new JButton("HTML?!?");
 		
 		saveButton = new JButton("DO you wish to save this converstion?");
+		
 		
 		chatLabel = new JLabel("This also has words");
 		
@@ -75,6 +78,7 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(chatField);
 		this.add(chatLabel);
+		this.add(searchTButton);
 		this.add(hButton);
 		this.add(loadButton);
 		this.add(saveButton);
@@ -90,12 +94,14 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, chatDisplay, 6, SpringLayout.SOUTH, tButton);
 		baseLayout.putConstraint(SpringLayout.WEST, chatDisplay, 0, SpringLayout.WEST, chatField);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatPane, -100, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, searchTButton, 382, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, tButton, 0, SpringLayout.NORTH, hButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, hButton, 154, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, loadButton, 0, SpringLayout.NORTH, hButton);
 		baseLayout.putConstraint(SpringLayout.EAST, hButton, -10, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatLabel, 372, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatLabel, -6, SpringLayout.NORTH, chatField);
+		baseLayout.putConstraint(SpringLayout.NORTH, searchTButton, 62, SpringLayout.SOUTH, saveButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, saveButton, 26, SpringLayout.SOUTH, tButton);
 		baseLayout.putConstraint(SpringLayout.WEST, saveButton, 303, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, tButton, 195, SpringLayout.EAST, loadButton);
@@ -158,6 +164,14 @@ public class ChatPanel extends JPanel
 				String fileName = chatField.getText() + ".txt";
 				String saved = FileController.readFile(baseController, fileName);
 				chatDisplay.setText(saved);
+			}
+		});
+		searchTButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed (ActionEvent click)
+			{
+				String userName = chatField.getText();
+				chatDisplay.setText(baseController.searchTwitter(userName));
 			}
 		});
 	}

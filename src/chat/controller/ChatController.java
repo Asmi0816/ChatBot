@@ -111,7 +111,6 @@ public class ChatController
 	public String searchTwitter(String name)
 	{
 		String results = tweetBot.getMostPopularWord(name);
-		
 		return results;
 	}
 	

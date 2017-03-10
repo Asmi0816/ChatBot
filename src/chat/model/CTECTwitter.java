@@ -135,7 +135,17 @@ public class CTECTwitter {
 		}
 
 	}
-
+	
+	private String tweetsWithImages()
+	{
+		String results = "";
+		
+		
+		
+		
+		
+		return results;
+	}
 
 	public String getMostPopularWord(String userName) 
 	{

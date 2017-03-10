@@ -6,6 +6,7 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import java.util.List;
 import java.util.Scanner;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -63,7 +64,7 @@ public class CTECTwitter {
 		{
 			boringWords[index] = boringWordScanner.next();
 		}
-		
+		boringWordScanner.close();
 		return boringWords;
 	}
 
@@ -111,7 +112,7 @@ public class CTECTwitter {
 			String [] tweetWords = tweetText.split(" ");
 			for(String word :  tweetWords)
 			{
-				tweetedWords.add(word);
+				tweetedWords.add(removePunctuation(word));
 			}
 		}
 	}
@@ -144,7 +145,7 @@ public class CTECTwitter {
 		removeBoringWords();
 		removeBlankWords();
 		
-		String information = "The tweetcount is " + allTheTweets.size() + " and the most popular word for " + userName + " is " + calculateTop();
+		String information = "The tweetcount is " + allTheTweets.size()  + calculateTop();
 		
 		
 		return information;
@@ -177,9 +178,22 @@ public class CTECTwitter {
 			currentPopularity = 0;
 		}
 		results += " the most popular word was " + topWord + ", and it occured " + popularCount + " times.";
-		results += "\nThat means it has a percentage of " + ((double)popularCount)/tweetedWords.size() * 100 + "%";
+		results += "\nThat means it has a percentage of " + (DecimalFormat.getPercentInstance().format(((double)popularCount)/tweetedWords.size()));
 		
 		return results;
 	}
-
+	
+	public String removePunctuation(String currentString)
+	{
+		String punctuation = ".,'?!;:\" ()[]^{}<>-";
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
+	}
 }

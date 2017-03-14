@@ -114,6 +114,12 @@ public class ChatController
 		return results;
 	}
 	
+	public String bf1Search(String wantedTopic)
+	{
+		String results = tweetBot.tweetsBF1(wantedTopic);
+		return results;
+	}
+	
 	public void useTwitter(String text)
 	{
 		tweetBot.sendTweet(text);

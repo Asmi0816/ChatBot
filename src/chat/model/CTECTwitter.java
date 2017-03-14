@@ -6,10 +6,14 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import java.util.List;
 import java.util.Scanner;
+
+import twitter4j.Query;
+import twitter4j.QueryResult;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-
+import twitter4j.GeoLocation;
 import twitter4j.Paging;
 import twitter4j.Status;
 
@@ -136,14 +140,36 @@ public class CTECTwitter {
 
 	}
 	
-	private String tweetsWithImages()
+	public String tweetsBF1(String wantedTopic)
 	{
 		String results = "";
 		
-		
-		
-		
-		
+		Query topic = new Query(wantedTopic);
+		topic.setCount(100);
+		topic.setGeoCode(new GeoLocation(33.812092, -117.918974), 20, Query.MILES);
+		topic.setSince("2017-3-12");
+		try
+		{
+			QueryResult foundTweets = twitterBot.search(topic);
+			results += "Count : " +foundTweets.getTweets().size() + "\n";
+			for(Status tweet : foundTweets.getTweets())
+			{
+				if(tweet.getText().contains("http") == false)
+				{
+					if(tweet.getText().contains("RT") == false)
+					{
+					results += "@" + tweet.getUser().getName() +": " + tweet.getText() + "\n" + "\n" + "Was posted within 20 miles of Disney Land!" + "\n" + "\n" + "\n";
+					}
+				}
+				
+			}
+			
+		}
+		catch(TwitterException error)
+		{
+			baseController.handleErrors(error);
+			
+		}
 		return results;
 	}
 
@@ -156,6 +182,7 @@ public class CTECTwitter {
 		removeBlankWords();
 		
 		String information = "The tweetcount is " + allTheTweets.size()  + calculateTop();
+		
 		
 		
 		return information;

@@ -22,6 +22,7 @@ public class ChatPanel extends JPanel
 	private JButton searchTButton;
 	private JButton saveButton;
 	private JLabel chatLabel;
+	private JButton bf1;
 	
 	public ChatPanel(ChatController baseController)
 	{
@@ -36,6 +37,7 @@ public class ChatPanel extends JPanel
 		
 		chatPane = new JScrollPane();
 		searchTButton = new JButton("Check twitter");
+		bf1 =  new JButton("Check for updates.");
 		
 		
 		loadButton = new JButton("load a topic?");
@@ -85,6 +87,7 @@ public class ChatPanel extends JPanel
 		this.add(saveButton);
 		this.add(tButton);
 		this.add(chatPane);
+		this.add(bf1);
 		
 		
 		
@@ -113,6 +116,8 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, chatButton, -377, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatField, -6, SpringLayout.NORTH, chatButton);
 		baseLayout.putConstraint(SpringLayout.WEST, loadButton, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, bf1, 0, SpringLayout.NORTH, searchTButton);
+		baseLayout.putConstraint(SpringLayout.WEST, bf1, 90, SpringLayout.WEST, this);
 		
 	}
 	
@@ -173,6 +178,15 @@ public class ChatPanel extends JPanel
 			{
 				String userName = chatField.getText();
 				chatDisplay.setText(baseController.searchTwitter(userName));
+			}
+		});
+		
+		bf1.addActionListener(new ActionListener()
+		{
+			public void actionPerformed (ActionEvent click)
+			{
+				String wantedTopic = chatField.getText();
+				chatDisplay.setText(baseController.bf1Search(wantedTopic));
 			}
 		});
 	}

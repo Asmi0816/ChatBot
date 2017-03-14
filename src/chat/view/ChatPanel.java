@@ -31,7 +31,7 @@ public class ChatPanel extends JPanel
 		baseLayout = new SpringLayout();
 		
 		chatField = new JTextField(25);
-		baseLayout.putConstraint(SpringLayout.WEST, chatField, 283, SpringLayout.WEST, this);
+		
 		
 		chatButton = new JButton("This one has words");
 		
@@ -110,6 +110,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, tButton, 0, SpringLayout.EAST, searchTButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, tButton, 0, SpringLayout.NORTH, hButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, saveButton, 26, SpringLayout.SOUTH, tButton);
+		baseLayout.putConstraint(SpringLayout.WEST, chatField, 283, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 200, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.EAST, chatPane, -200, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 90, SpringLayout.NORTH, this);
